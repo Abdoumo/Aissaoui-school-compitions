@@ -8,6 +8,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    build: {
+      outDir: 'dist', // make sure this matches Vercel settings
+    },
     fs: {
       allow: ["./client", "./shared"],
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
@@ -24,6 +27,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
+// vite.config.js
 
 function expressPlugin(): Plugin {
   return {
